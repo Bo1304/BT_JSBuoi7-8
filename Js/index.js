@@ -117,17 +117,20 @@ function sort() {
 
 // Bài 8: Tìm số nguyên tố đầu tiên trong mảng
 function timSNT() {
+    var content = "";
     let soNguyenTo = 0;
     var snt = 0 ;
     for (let i = 0; i < arr.length; i++) {
       if(checkNT(arr[i]) == true ){
         soNguyenTo = arr[i];
+        content += arr[i] + " ";
+        break;
       
-       
-      }
-      
-      dom("#soNguyenTo").innerHTML = "Số nguyên tố đầu tiên trong mảng: " + soNguyenTo;
+      }     
     }
+    
+ 
+    dom("#soNguyenTo").innerHTML = "Số nguyên tố đầu tiên trong mảng: " + content;
 
 }
 function checkNT(x) {
