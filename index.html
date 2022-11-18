@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>JS Buổi 7-8</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="card">
+            <!-- Thêm số -->
+            <div class="card-header">
+                <div class="form-group">
+                    <div class="row container pt-3">
+                        <input type="text" class="form-control col-md-7 col-sm-7 mr-3" name="" id="number"
+                            placeholder="Nhập số n">
+                        <button onclick="themSo()" class="btn btn-dark col-md-3 col-sm-3">Thêm số </button>
+                    </div>
+                    <div id="array" class="form-control col-md-10 col-sm-10 mt-3" style="display: none;"></div>
+                </div>
+            </div>
+            <!-- ============== -->
+
+            <div class="card-body">
+                <div id="accordion">
+                    <!-- Tổng số dương -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="card-link text-danger" data-toggle="collapse" href="#collapseOne">
+                                Tổng số dương
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row container">
+                                    <div id="tongSoDuong" class="form-control col-md-7 col-sm-7 mr-3"></div>
+                                    <button onclick="tinhTong()" class="btn btn-danger col-md-3 col-sm-3">Tính
+                                        tổng</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ==================== -->
+
+                    <!-- Đếm số dương -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                Đếm số dương
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row container">
+                                    <div id="demSoDuong" class="form-control col-md-7 col-sm-7 mr-3"></div>
+                                    <button onclick="demSo()" class="btn btn-primary col-md-3 col-sm-3">
+                                        Đếm số</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ===================== -->
+
+                    <!-- Tìm số nhỏ nhất -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link text-info" data-toggle="collapse" href="#collapseThree">
+                                Tìm số nhỏ nhất
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row container">
+                                    <div id="soNhoNhat" class="form-control col-md-7 col-sm-5 mr-3"></div>
+                                    <button onclick="soNhoNhat()" class="btn btn-info col-md-4 col-sm-5">
+                                        Tìm số nhỏ nhất</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ====================== -->
+
+                    <!-- Tìm số dương nhỏ nhất -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link text-warning" data-toggle="collapse" href="#collapseFour">
+                                Tìm số dương nhỏ nhất
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row container">
+                                    <div id="soDuongNhoNhat" class="form-control col-md-7 col-sm-5 mr-3"></div>
+                                    <button onclick="soDuongNhoNhat()" class="btn btn-warning col-md-4 col-sm-5">
+                                        Tìm số dương nhỏ nhất</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ========================= -->
+
+                    <!-- Tìm số chẵn cuối cùng -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link text-danger" data-toggle="collapse" href="#collapseFive">
+                                Tìm số chẵn cuối cùng
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row container">
+                                    <div id="soChanCuoi" class="form-control col-md-7 col-sm-5 mr-3"></div>
+                                    <button onclick="soChanCuoi()" class="btn btn-danger col-md-4 col-sm-5">
+                                        Tìm số chẵn</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ====================== -->
+
+                    <!-- Đổi vị trí trong mảng -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link text-primary" data-toggle="collapse" href="#collapseSix">
+                                Đổi chỗ
+                            </a>
+                        </div>
+                        <div id="collapseSix" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <input type="number" class="form-control col-md-11 col-sm-11" name="" id="num1"
+                                        placeholder="Nhập vị trí số 1">
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="number" class="form-control col-md-11 col-sm-11" name="" id="num2"
+                                        placeholder="Nhập vị trí số 2">
+                                </div>
+
+                                <div class="row container">
+                                    <div id="doiCho" class="form-control col-md-7 col-sm-5 mr-3"></div>
+                                    <button onclick="doiCho()" class="btn btn-primary col-md-4 col-sm-5">
+                                        Đổi chỗ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ====================== -->
+
+                    <!-- Sắp xếp mảng theo thứ tự tăng dần -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link text-success" data-toggle="collapse" href="#collapseSeven">
+                                Sắp xếp tăng dần
+                            </a>
+                        </div>
+                        <div id="collapseSeven" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row container">
+                                    <div id="sort" class="form-control col-md-7 col-sm-5 mr-3"></div>
+                                    <button onclick="sort()" class="btn btn-success col-md-4 col-sm-5">
+                                        Sắp xếp</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ====================== -->
+
+                    <!-- Số nguyên tố đầu tiên trong mảng -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseEight">
+                                Tìm số nguyên tố đầu tiên trong mảng
+                            </a>
+                        </div>
+                        <div id="collapseEight" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row container">
+                                    <div id="soNguyenTo" class="form-control col-md-7 col-sm-5 mr-3"></div>
+                                    <button onclick="timSNT()" class="btn btn-dark col-md-4 col-sm-5">
+                                        Tìm số nguyên tố</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ====================== -->
+
+                    <!-- Đếm số nguyên -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link text-warning" data-toggle="collapse" href="#collapseNine">
+                                Đếm số nguyên
+                            </a>
+                        </div>
+                        <div id="collapseNine" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="row container">
+                                        <input type="number" class="form-control col-md-7 col-sm-7 mr-3" name=""
+                                            id="float" placeholder="Nhập số">
+                                        <button onclick="themSoThuc()" class="btn btn-dark col-md-3 col-sm-3">Thêm số
+                                        </button>
+                                    </div>
+                                    <div id="arrayFloat" class="form-control col-md-10 col-sm-10 mt-3"
+                                        style="display: none;"></div>
+                                </div>
+
+                                <div class="row container">
+                                    <div id="demSoNguyen" class="form-control col-md-7 col-sm-5 mr-3"></div>
+                                    <button onclick="demSoNguyen()" class="btn btn-warning col-md-4 col-sm-5">
+                                        Đếm số nguyên</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ====================== -->
+
+                    <!-- So sánh số lượng số dương và số âm -->
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link text-primary" data-toggle="collapse" href="#collapseTen">
+                                So sánh số lượng số dương và số âm
+                            </a>
+                        </div>
+                        <div id="collapseTen" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <div class="row container">
+                                    <div id="soSanh" class="form-control col-md-7 col-sm-5 mr-3"></div>
+                                    <button onclick="soSanh()" class="btn btn-primary col-md-4 col-sm-5">
+                                        So sánh</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ====================== -->
+
+                </div>
+            </div>
+          
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="./Js/index.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+        
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
