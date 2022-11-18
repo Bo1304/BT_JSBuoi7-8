@@ -118,11 +118,14 @@ function sort() {
 // Bài 8: Tìm số nguyên tố đầu tiên trong mảng
 function timSNT() {
     let soNguyenTo = 0;
-   
+    var snt = 0 ;
     for (let i = 0; i < arr.length; i++) {
       if(checkNT(arr[i]) == true ){
         soNguyenTo = arr[i];
+      
+       
       }
+      
       dom("#soNguyenTo").innerHTML = "Số nguyên tố đầu tiên trong mảng: " + soNguyenTo;
     }
 
