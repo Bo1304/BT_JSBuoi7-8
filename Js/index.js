@@ -64,16 +64,18 @@ function soNhoNhat() {
 function soDuongNhoNhat() {
     let min = arr[0];
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > 0) {
-            if (arr[i] > min) {
-                min = arr[i];
-
-            }
-        }
-
-        console.log(min);
-        dom("#soDuongNhoNhat").innerHTML = "Số dương nhỏ nhất trong mảng: " + min;
+        if (arr[i] > 0) {      
+            min = arr[i];
+            break;      
+        }     
     }
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i] > 0 && arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    console.log(min);
+    dom("#soDuongNhoNhat").innerHTML = "Số dương nhỏ nhất trong mảng: " + min;
 }
 // ========================
 
@@ -116,16 +118,26 @@ function sort() {
 // Bài 8: Tìm số nguyên tố đầu tiên trong mảng
 function timSNT() {
     let soNguyenTo = 0;
+   
     for (let i = 0; i < arr.length; i++) {
-        if (arr[i] % i !== 0 && arr[i] !== 4) {
-            soNguyenTo = arr[i];
-            console.log(arr[i]);
-        } else {
-            soNguyenTo = -1;
-        }
+      if(checkNT(arr[i]) == true ){
+        soNguyenTo = arr[i];
+      }
+      dom("#soNguyenTo").innerHTML = "Số nguyên tố đầu tiên trong mảng: " + soNguyenTo;
     }
-    dom("#soNguyenTo").innerHTML = "Số nguyên tố đầu tiên trong mảng: " + soNguyenTo;
+
 }
+function checkNT(x) {
+    var Check_SNT;
+    for (var i = 2; i <= Math.sqrt(x); i++) {
+      if (x % i === 0) {
+        return 0;
+      }
+  
+    }
+    return 1;
+  
+  }
 // ========================
 
 // Bài 9: Đếm số nguyên  
